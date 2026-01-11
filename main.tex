@@ -1,0 +1,152 @@
+\documentclass[10pt,a4paper]{article}
+
+% --- Page & layout ---
+\usepackage[margin=1.25cm]{geometry}
+\usepackage{multicol}
+\setlength{\columnsep}{0.75cm}
+\setlength{\columnseprule}{0.4pt}
+\pagenumbering{gobble}
+
+% --- Math & fonts ---
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{mathpazo}
+
+% --- Headings ---
+\usepackage{titlesec}
+\setlength{\parindent}{0pt}
+\titlespacing*{\section}{0pt}{2em}{-0.5em}
+\titleformat{\section}{\bfseries\normalsize}{\thesection}{0.6em}{}
+
+% --- Tighten display spacing ---
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+
+% --- Equation + caption layout parameters ---
+\newcommand{\EqLeftFrac}{0.74}
+\newcommand{\CapRightFrac}{0.22}
+\newcommand{\RuleGap}{0.012\linewidth}
+\newcommand{\RuleW}{0.4pt}
+
+% --- Equation with right-aligned caption and vertical rule ---
+\newcommand{\eqcap}[2]{%
+\par
+\vspace{0.8em}
+\noindent
+\begin{minipage}[c]{\linewidth}
+  \begin{minipage}[c]{\EqLeftFrac\linewidth}
+    \[
+      #1
+    \]
+  \end{minipage}%
+  \hfill
+  \hspace{\RuleGap}%
+  \vrule width \RuleW
+  \hspace{\RuleGap}%
+  \begin{minipage}[c]{\CapRightFrac\linewidth}
+    \raggedleft
+    \linespread{0.8}\selectfont
+    {\scriptsize\itshape #2}
+  \end{minipage}
+\end{minipage}
+\par
+}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Foundational Equations of Modern Physics}}\\[0.25em]
+{\small Structural map — all foundations on one page}
+\end{center}
+
+\vspace{0.25em}
+
+\begin{multicols}{2}
+\raggedcolumns
+
+% =========================================================
+\section*{Classical Mechanics}
+\eqcap{ \dv{}{t}\vec p = \vec F }{Newton (1687)}
+\eqcap{ S[q]=\int L(q,\dot q,t)\,dt,\quad \delta S=0 }{Maupertuis–Euler-\\Lagrange (18th c.)}
+\eqcap{ \dv{}{t}\frac{\partial L}{\partial \dot q}=\frac{\partial L}{\partial q} }{Euler–Lagrange}
+\eqcap{ H=\sum_i p_i\dot q_i-L }{Hamilton (1833)}
+\eqcap{ \dot q_i=\partial H/\partial p_i,\;\dot p_i=-\partial H/\partial q_i }{Hamilton (canonical)}
+
+% =========================================================
+\section*{Waves, Fields, Continua}
+\eqcap{ \Box \phi = 0 }{d’Alembert (1747)}
+\eqcap{ \pdv{u}{t}=\alpha\nabla^2 u }{Fourier (1822)}
+\eqcap{ \nabla^2\Phi=4\pi G\rho }{Poisson / Newton}
+\eqcap{ \rho(\pdv{\vec v}{t}+(\vec v\cdot\nabla)\vec v)=-\nabla p+\mu\nabla^2\vec v }{Navier–Stokes (1822–45)}
+
+% =========================================================
+\section*{Special Relativity}
+\eqcap{ ds^2=\eta_{\mu\nu}dx^\mu dx^\nu }{Minkowski (1908)}
+\eqcap{ E=mc^2 }{Einstein (1905)}
+\eqcap{ E^2=p^2c^2+m^2c^4 }{Relativistic dynamics}
+\eqcap{ p^\mu=(E/c,\vec p) }{Poincaré–\\Minkowski}
+
+% =========================================================
+\section*{Electromagnetism}
+\eqcap{ \partial_\mu F^{\mu\nu}=\mu_0J^\nu,\;\partial_{[\lambda}F_{\mu\nu]}=0 }{Maxwell (1861–65)}
+\eqcap{ \vec F=q(\vec E+\vec v\times\vec B) }{Lorentz (1892)}
+\eqcap{ \vec E=-\nabla\phi-\pdv{\vec A}{t},\;\vec B=\nabla\times\vec A }{Potentials}
+\eqcap{ \Box A^\mu=\mu_0J^\mu }{Lorenz gauge (1867)}
+
+% =========================================================
+\section*{Thermodynamics / Statistics}
+\eqcap{ dU=TdS-PdV+\mu\,dN }{Clausius–Kelvin–\\Gibbs}
+\eqcap{ S=k_B\ln\Omega }{Boltzmann (1877)}
+\eqcap{ Z=\sum_i e^{-\beta E_i} }{Gibbs (1902)}
+\eqcap{ F=-k_BT\ln Z }{Helmholtz free energy}
+\columnbreak
+
+% =========================================================
+\section*{Quantum Mechanics}
+\eqcap{ i\hbar\pdv{}{t}\psi=\hat H\psi }{Schrödinger (1926)}
+\eqcap{ [\hat x,\hat p]=i\hbar }{Heisenberg (1925)}
+\eqcap{ \Delta x\,\Delta p\ge\hbar/2 }{Uncertainty principle}
+\eqcap{ \expval{A}=\bra{\psi}\hat A\ket{\psi} }{Born / Dirac}
+
+% =========================================================
+\section*{Quantum Field Theory}
+\eqcap{ Z=\int\mathcal D\phi\,e^{\tfrac{i}{\hbar}S[\phi]} }{Feynman (1948)}
+\eqcap{ (\Box+m^2)\phi=0 }{Klein–Gordon (1926)}
+\eqcap{ (i\gamma^\mu\partial_\mu-m)\psi=0 }{Dirac (1928)}
+\eqcap{ \mathcal L=-\tfrac14F_{\mu\nu}F^{\mu\nu}+\bar\psi(i\gamma^\mu D_\mu-m)\psi }{QED Lagrangian}
+
+% =========================================================
+\section*{Gauge Structure / Standard Model}
+\eqcap{ SU(3)_C\times SU(2)_L\times U(1)_Y }{Standard Model}
+\eqcap{ D_\mu=\partial_\mu-igA_\mu }{Weyl gauge principle}
+\eqcap{ F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu-ig[A_\mu,A_\nu] }{Yang–Mills (1954)}
+\eqcap{ |D_\mu H|^2-V(H) }{Higgs mechanism (1964)}
+
+% =========================================================
+\section*{General Relativity}
+\eqcap{ G_{\mu\nu}+\Lambda g_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu} }{Einstein (1915)}
+\eqcap{ S_{\rm EH}=\frac{c^3}{16\pi G}\!\int\!\sqrt{-g}(R-2\Lambda)\,d^4x }{Hilbert–Einstein}
+\eqcap{ \Gamma^\rho_{\mu\nu}=\tfrac12 g^{\rho\sigma}(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}-\partial_\sigma g_{\mu\nu}) }{Levi-Civita}
+
+% =========================================================
+\section*{Symmetry \& Information}
+\eqcap{ \text{symmetry}\;\Longleftrightarrow\;\text{conservation} }{Noether (1918)}
+\eqcap{ \rho\mapsto U\rho U^\dagger }{von Neumann (1932)}
+\eqcap{ H(p)=-\sum_i p_i\log p_i }{Shannon (1948)}
+\eqcap{ S(\rho)=-k_B\Tr(\rho\ln\rho) }{von Neumann entropy}
+
+\end{multicols}
+
+\vspace{0.2em}
+\hrule
+\vspace{0.2em}
+{\small
+\textbf{Illustrated claim:}
+Most of modern physics arises from these equations via symmetry choice,
+quantization, and limiting procedures
+($\hbar\!\to\!0$, $c\!\to\!\infty$, coarse graining).
+}
+
+\end{document}
