@@ -4,7 +4,7 @@ A one-page reference sheet containing the most important equations from classica
 
 ## Preview
 
-![Preview](main.pdf)
+![Preview](preview.png)
 
 *[Click here to view the full PDF](main.pdf)*
 
